@@ -19,6 +19,7 @@ export default {
     "2xl": "6rem",
    },
   },
+  dynamic: "clamp(1rem, 10vw, 2rem)",
  },
  plugins: [],
 } satisfies Config;

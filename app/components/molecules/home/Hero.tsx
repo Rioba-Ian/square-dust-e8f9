@@ -1,5 +1,6 @@
 import InputSearch from "~/components/atoms/InputSearch";
 import { CatWikiLogo } from "../Nav";
+import { Link } from "@remix-run/react";
 
 export default function Hero() {
  return (
@@ -10,7 +11,9 @@ export default function Hero() {
    >
     <HeroContainer />
    </section>
-   <section></section>
+   <section className="bg-beige">
+    <HeroMostSearched />
+   </section>
   </main>
  );
 }
@@ -29,6 +32,27 @@ function HeroContainer() {
      Get to know more about your car breed.
     </h1>
     <InputSearch />
+   </div>
+  </div>
+ );
+}
+
+function HeroMostSearched() {
+ return (
+  <div id="most-searched" className="w-4/5 mx-auto py-6 md:py-10">
+   <div className="py-2">
+    <p className="text-sm md:text-lg text-dark-text">Most Searched Breeds</p>
+   </div>
+   <div className="flex items-end justify-between py-4 sm:py-6">
+    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold w-2/3">
+     66+ Breeds for you to discover
+    </h2>
+    <Link
+     to="/"
+     className="text-sm md:text-lg text-dark-text opacity-60 uppercase hover:opacity-100 hover:font-bold"
+    >
+     See More
+    </Link>
    </div>
   </div>
  );

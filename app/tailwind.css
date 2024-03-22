@@ -29,6 +29,8 @@ body {
  background-size: cover;
  background-position: right;
  background-repeat: no-repeat;
+ border-top-right-radius: 2rem;
+ border-top-left-radius: 2rem;
 }
 
 /* media queries for smaller screens and above  */
