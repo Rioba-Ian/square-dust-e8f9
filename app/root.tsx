@@ -16,22 +16,39 @@ export const links: LinksFunction = () => [
 ];
 
 export const meta: MetaFunction = () => {
+ const imageElements = [
+  {
+   name: "twitter:image",
+   content: `https://res.cloudinary.com/drxurk7lu/image/upload/v1711104100/catswiki/Cats_Wiki_nx0zdh.jpg`,
+  },
+  {
+   property: "og:image",
+   content: `https://res.cloudinary.com/drxurk7lu/image/upload/v1711104100/catswiki/Cats_Wiki_nx0zdh.jpg`,
+  },
+  {
+   name: "twitter:card",
+   content: "summary_large_image",
+  },
+ ];
  return [
   {
    charset: "utf-8",
-   "og:image":
-    "https://res.cloudinary.com/drxurk7lu/image/upload/v1711104100/catswiki/Cats_Wiki_nx0zdh.jpg",
-   "og:title": "Cats Wiki, Quick Cats Reference",
-   "og:description": "Get to know your cat breed better and other cats.",
-   "og:url": "https://square-dust-e8f9.pages.dev/",
-   "og:type": "website",
-   "twitter:card": "summary_large_image",
-   "twitter:site": "@rioba_riri",
-   "twitter:creator": "@rioba_riri",
-   "twitter:title": "Cats Wiki, Quick Cats Reference",
    title: "Cats Wiki",
    description: "Get to know your cat breed better and other cats.",
    viewport: "width=device-width,initial-scale=1",
+  },
+  ...imageElements,
+  { property: "og:type", content: "article" },
+  { property: "og:title", content: "Cats Wiki" },
+  { property: "og:site_name", content: "Cats Wiki" },
+  {
+   property: "og:description",
+   content:
+    "Get to know your cat breed better and other cats. Developed by Ian Rioba(www.riobaian.dev)",
+  },
+  {
+   property: "og:url",
+   content: "https://square-dust-e8f9.pages.dev/",
   },
  ];
 };
