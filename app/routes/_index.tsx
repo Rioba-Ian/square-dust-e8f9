@@ -7,7 +7,7 @@ export const meta: MetaFunction = () => {
   { title: "Cats Wiki" },
   {
    name: "description",
-   content: "Welcome to Remix! Using Vite and Cloudflare!",
+   content: "Get to know your cat breed better and other cats.",
   },
  ];
 };
