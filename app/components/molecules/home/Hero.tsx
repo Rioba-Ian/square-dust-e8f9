@@ -1,6 +1,8 @@
 import InputSearch from "~/components/atoms/InputSearch";
 import { CatWikiLogo } from "../Nav";
-import { Link } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
+import { CatBreedsData } from "globals";
+import { Image } from "@unpic/react";
 
 export default function Hero() {
  return (
@@ -11,7 +13,7 @@ export default function Hero() {
    >
     <HeroContainer />
    </section>
-   <section className="bg-beige">
+   <section className="bg-beige rounded-b-3xl">
     <HeroMostSearched />
    </section>
   </main>
@@ -38,6 +40,12 @@ function HeroContainer() {
 }
 
 function HeroMostSearched() {
+ const data = useLoaderData();
+
+ const hasTopBreeds: CatBreedsData[] = data?.topPickedBreeds;
+
+ console.log(hasTopBreeds);
+
  return (
   <div id="most-searched" className="w-4/5 mx-auto py-6 md:py-10">
    <div className="py-2">
@@ -53,6 +61,29 @@ function HeroMostSearched() {
     >
      See More
     </Link>
+   </div>
+
+   <div
+    id="top-breeds"
+    className="grid grid-cols-2 gap-4 md:grid-cols-4 py-4 md:py-8"
+   >
+    {hasTopBreeds?.map((breed) => (
+     <div key={breed.id} className="flex items-center py-4 sm:py-6">
+      <Link
+       to={`/breed/${breed.id}`}
+       className="text-sm md:text-lg text-dark-text font-bold"
+      >
+       <Image
+        src={breed.image.url}
+        alt={breed.name}
+        className="rounded-3xl"
+        width={220}
+        height={220}
+       />
+       <p className="my-2">{breed.name}</p>
+      </Link>
+     </div>
+    ))}
    </div>
   </div>
  );
