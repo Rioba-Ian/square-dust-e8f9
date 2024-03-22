@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
-import Nav from "~/components/Nav";
+import Nav from "~/components/molecules/Nav";
+import Hero from "~/components/molecules/home/Hero";
 
 export const meta: MetaFunction = () => {
  return [
@@ -15,7 +16,7 @@ export default function Index() {
  return (
   <div className="container mx-auto">
    <Nav />
-   <h1>Welcome to Remix (with Vite and Cloudflare)</h1>
+   <Hero />
   </div>
  );
 }
