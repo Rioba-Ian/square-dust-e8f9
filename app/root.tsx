@@ -21,11 +21,11 @@ export const meta: MetaFunction = () => {
  const imageElements = [
   {
    name: "twitter:image",
-   content: `https://res.cloudinary.com/drxurk7lu/image/upload/v1711126827/catswiki/Cats_Wiki_7.58pm_03-22_bexoua.jpg`,
+   content: `https://res.cloudinary.com/drxurk7lu/image/upload/v1711130434/catswiki/Screenshot_2024-03-22_at_20-49-06_Cats_Wiki_1_ypdxam.png`,
   },
   {
    property: "og:image",
-   content: `https://res.cloudinary.com/drxurk7lu/image/upload/v1711126827/catswiki/Cats_Wiki_7.58pm_03-22_bexoua.jpg`,
+   content: `https://res.cloudinary.com/drxurk7lu/image/upload/v1711130434/catswiki/Screenshot_2024-03-22_at_20-49-06_Cats_Wiki_1_ypdxam.png`,
   },
   {
    name: "twitter:card",
