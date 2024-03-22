@@ -4,7 +4,7 @@ import Hero from "~/components/molecules/home/Hero";
 
 export const meta: MetaFunction = () => {
  return [
-  { title: "New Remix App" },
+  { title: "Cats Wiki" },
   {
    name: "description",
    content: "Welcome to Remix! Using Vite and Cloudflare!",
