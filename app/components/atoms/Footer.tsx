@@ -8,7 +8,7 @@ export default function Footer() {
     className="py-4 md:py-6 px-2 md:px-8 text-white flex items-center justify-between"
    >
     <CatWikiLogo fill="#fff" />
-    <small>
+    <small className="ml-[5rem] ">
      © created by
      <a
       href="https://github.com/Rioba-Ian"

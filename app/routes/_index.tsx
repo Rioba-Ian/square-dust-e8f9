@@ -2,6 +2,7 @@ import { json } from "@remix-run/cloudflare";
 import type { LoaderFunction } from "@remix-run/cloudflare";
 import { CatBreedsData } from "globals";
 import Hero from "~/components/molecules/home/Hero";
+import WhyHaveCat from "~/components/molecules/home/WhyHaveCat";
 import { baseUrl } from "~/lib/api";
 
 const myTopBreeds = [
@@ -38,6 +39,7 @@ export default function Index() {
  return (
   <div>
    <Hero />
+   <WhyHaveCat />
   </div>
  );
 }
