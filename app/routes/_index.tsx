@@ -1,7 +1,6 @@
 import { json } from "@remix-run/cloudflare";
 import type { LoaderFunction } from "@remix-run/cloudflare";
 import { CatBreedsData } from "globals";
-import Nav from "~/components/molecules/Nav";
 import Hero from "~/components/molecules/home/Hero";
 import { baseUrl } from "~/lib/api";
 
@@ -37,8 +36,7 @@ export const loader: LoaderFunction = async ({ context }) => {
 
 export default function Index() {
  return (
-  <div className="container mx-auto">
-   <Nav />
+  <div>
    <Hero />
   </div>
  );

@@ -9,6 +9,8 @@ import {
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
 
 import stylesheet from "~/tailwind.css?url";
+import Nav from "./components/molecules/Nav";
+import Footer from "./components/atoms/Footer";
 
 export const links: LinksFunction = () => [
  { rel: "stylesheet", href: stylesheet },
@@ -64,7 +66,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <Links />
    </head>
    <body>
-    {children}
+    <div className="container mx-auto">
+     <Nav />
+     {children}
+     <Footer />
+    </div>
     <ScrollRestoration />
     <Scripts />
    </body>
