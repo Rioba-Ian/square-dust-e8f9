@@ -1,4 +1,5 @@
 import { json } from "@remix-run/cloudflare";
+import type { LoaderFunction } from "@remix-run/cloudflare";
 import { CatBreedsData } from "globals";
 import Nav from "~/components/molecules/Nav";
 import Hero from "~/components/molecules/home/Hero";
@@ -11,10 +12,10 @@ const myTopBreeds = [
  "Norwegian Forest Cat",
 ];
 
-export const loader = async () => {
+export const loader: LoaderFunction = async ({ context }) => {
  const res = await fetch(`${baseUrl}/breeds`, {
   headers: {
-   "x-api-key": process.env.CATS_API_KEY as string,
+   "x-api-key": context.cloudflare.env.CATS_API_KEY,
   },
  });
 
