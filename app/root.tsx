@@ -21,15 +21,15 @@ export const meta: MetaFunction = () => {
  const imageElements = [
   {
    name: "twitter:image",
-   content: `https://res.cloudinary.com/drxurk7lu/image/upload/v1711130434/catswiki/Screenshot_2024-03-22_at_20-49-06_Cats_Wiki_1_ypdxam.png`,
+   content: `https://res.cloudinary.com/drxurk7lu/image/upload/v1711286520/catswiki/Cats_Wiki_4.13pm_03-24_1_ahmalz.jpg`,
   },
   {
    property: "og:image",
-   content: `https://res.cloudinary.com/drxurk7lu/image/upload/v1711130434/catswiki/Screenshot_2024-03-22_at_20-49-06_Cats_Wiki_1_ypdxam.png`,
+   content: `https://res.cloudinary.com/drxurk7lu/image/upload/v1711286520/catswiki/Cats_Wiki_4.13pm_03-24_1_ahmalz.jpg`,
   },
   {
    name: "twitter:card",
-   content: "summary_large_image",
+   content: "summary",
   },
  ];
  return [

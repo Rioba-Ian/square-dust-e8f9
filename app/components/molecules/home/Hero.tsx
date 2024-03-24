@@ -3,6 +3,7 @@ import { CatWikiLogo } from "../Nav";
 import { Link, useLoaderData } from "@remix-run/react";
 import { CatBreedsData } from "globals";
 import { Image } from "@unpic/react";
+import { LoaderFunction } from "@remix-run/cloudflare";
 
 export default function Hero() {
  return (
@@ -40,7 +41,11 @@ function HeroContainer() {
 }
 
 function HeroMostSearched() {
- const data = useLoaderData();
+ const data = useLoaderData<LoaderFunction>();
+
+ if (!data) {
+  return <div>No data found.</div>;
+ }
 
  const hasTopBreeds: CatBreedsData[] = data?.topPickedBreeds;
 
@@ -56,7 +61,7 @@ function HeroMostSearched() {
      66+ Breeds for you to discover
     </h2>
     <Link
-     to="/"
+     to="/mostpopular"
      className="text-sm md:text-lg text-dark-text opacity-60 uppercase hover:opacity-100 hover:font-bold"
     >
      See More
