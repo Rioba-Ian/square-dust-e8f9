@@ -50,3 +50,5 @@ CATS_API_KEY = "live_ow1CLEylRgwcUnT7PkTrl5dVRLmvstqrz1KI9GFqxBU0WzyZPsbwC7CxKfa
 # [[services]]
 # binding = "MY_SERVICE"
 # service = "my-service"
+
+compatibility_flags = [ "nodejs_compat" ]

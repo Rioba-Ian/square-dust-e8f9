@@ -4,7 +4,7 @@ import { CatBreedsData } from "globals";
 import Hero from "~/components/molecules/home/Hero";
 import WhyHaveCat from "~/components/molecules/home/WhyHaveCat";
 import { baseUrl } from "~/lib/api";
-import { bulkUploadData, getAllSearchDocuments } from "~/lib/search";
+// import { bulkUploadData, getAllSearchDocuments, client } from "~/lib/search";
 
 const myTopBreeds = [
  "Abyssinian",
@@ -26,16 +26,18 @@ export const loader: LoaderFunction = async ({ context }) => {
  );
  const topTenBreeds = topPickedBreeds.slice(0, 10);
 
- const docsData = await getAllSearchDocuments();
+ //  const docsData = await getAllSearchDocuments(context);
 
- if (docsData && docsData.hits && docsData.hits.total?.value === 0) {
-  const dataToUpload = breedsData.map((item) => ({
-   id: item.id,
-   name: item.name,
-  }));
+ //  console.log("docsData", docsData);
 
-  await bulkUploadData(dataToUpload);
- }
+ //  if (docsData && docsData.hits && docsData.hits.total?.value === 0) {
+ //   const dataToUpload = breedsData.map((item) => ({
+ //    id: item.id,
+ //    name: item.name,
+ //   }));
+
+ //   await bulkUploadData(dataToUpload);
+ //  }
 
  console.log(topTenBreeds);
 

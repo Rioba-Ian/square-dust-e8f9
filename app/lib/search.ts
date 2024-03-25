@@ -1,42 +1,54 @@
-import { Client } from "@elastic/elasticsearch";
+// import { Client } from "@elastic/elasticsearch";
+// import { AppLoadContext } from "@remix-run/cloudflare";
 
-export const client = new Client({
- node: process.env.ELASTIC_SEARCH_ENDPOINT,
- auth: {
-  apiKey: process.env.ELASTIC_CATS_WIKI_API_KEY!,
- },
-});
+// export const client = async ({ context }) => {
+//  return new Client({
+//   node: context.cloudflare.env.ELASTIC_SEARCH_ENDPOINT,
+//   auth: {
+//    apiKey: context.cloudflare.env.ELASTIC_CATS_WIKI_API_KEY!,
+//   },
+//  });
+// };
 
-export const prepareBulkUploadData = (data: any[]) => {
- const bulkBody = [];
+// /*
+//  node: process.env.ELASTIC_SEARCH_ENDPOINT,
+//  auth: {
+//   apiKey: process.env.ELASTIC_CATS_WIKI_API_KEY!,
+//  },
+// */
 
- for (const item of data) {
-  bulkBody.push({ index: { _index: "search-catswiki" } });
-  bulkBody.push(item);
- }
+// export const prepareBulkUploadData = <T>(data: T[]) => {
+//  const bulkBody = [];
 
- return bulkBody;
-};
+//  for (const item of data) {
+//   bulkBody.push({ index: { _index: "search-catswiki" } });
+//   bulkBody.push(item);
+//  }
 
-export const bulkUploadData = async (data: any[]) => {
- const bulkUploadData = prepareBulkUploadData(data);
+//  return bulkBody;
+// };
 
- try {
-  const resp = await client.bulk({ body: bulkUploadData });
-  console.log("bulk upload response", resp);
- } catch (err) {
-  console.error("Error in bulk uploading...", err);
- }
-};
+// export const bulkUploadData = async <T>(data: T[], context: AppLoadContext) => {
+//  const bulkUploadData = prepareBulkUploadData(data);
 
-export const getAllSearchDocuments = async () => {
- try {
-  const resp = await client.search({
-   index: "search-catswiki",
-  });
-  return resp;
- } catch (err) {
-  console.error("Error in getting saerched documents", err);
-  return null;
- }
-};
+//  try {
+//   const clientInstance = await client({ context });
+//   const resp = await clientInstance.bulk({ body: bulkUploadData });
+//   console.log("bulk upload response", resp);
+//  } catch (err) {
+//   console.error("Error in bulk uploading...", err);
+//  }
+// };
+
+// export const getAllSearchDocuments = async ({ context }: AppLoadContext) => {
+//  try {
+//   const clientInstance = await client({ context });
+//   const resp = await clientInstance.search({
+//    index: "search-catswiki",
+//   });
+//   return resp;
+//  } catch (err) {
+//   console.error("Error in getting saerched documents", err);
+//   return null;
+//  }
+// };
