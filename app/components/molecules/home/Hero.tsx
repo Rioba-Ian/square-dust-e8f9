@@ -62,6 +62,7 @@ function HeroMostSearched() {
     </h2>
     <Link
      to="/mostpopular"
+     prefetch="intent"
      className="text-sm md:text-lg text-dark-text opacity-60 uppercase hover:opacity-100 hover:font-bold"
     >
      See More

@@ -1,7 +1,11 @@
+import { NavLink } from "@remix-run/react";
+
 export default function Nav() {
  return (
   <nav className="py-4">
-   <CatWikiLogo />
+   <NavLink to="/">
+    <CatWikiLogo />
+   </NavLink>
   </nav>
  );
 }
