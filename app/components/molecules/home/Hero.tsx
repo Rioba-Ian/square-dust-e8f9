@@ -76,7 +76,7 @@ function HeroMostSearched() {
     {hasTopBreeds?.map((breed) => (
      <div key={breed.id} className="flex items-center py-4 sm:py-6">
       <Link
-       to={`/breed/${breed.id}`}
+       to={`/cat/${breed.id}`}
        className="text-sm md:text-lg text-dark-text font-bold"
       >
        <Image

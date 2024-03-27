@@ -1,5 +1,5 @@
 import { LoaderFunction, json } from "@remix-run/cloudflare";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, Link } from "@remix-run/react";
 import { Image } from "@unpic/react";
 import { CatBreedsData } from "globals";
 import { baseUrl } from "~/lib/api";
@@ -49,13 +49,18 @@ export default function Mostpopular() {
       key={breed.id}
       className="py-2 md:py-8 space-y-4 md:space-y-8 flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-12 list-decimal"
      >
-      <Image
-       src={breed.image.url}
-       className="rounded-3xl"
-       alt={breed.name}
-       width={300}
-       height={300}
-      />
+      <Link
+       to={`/cat/${breed.id}`}
+       className="block min-w-[240px] md:min-w-[300px] h-[300px]"
+      >
+       <Image
+        src={breed.image.url}
+        className="rounded-3xl w-full"
+        alt={breed.name}
+        width={300}
+        height={300}
+       />
+      </Link>
       <div>
        <h2 className="text-2xl md:text-4xl text-dark-text">
         {index + 1}. {breed.name}

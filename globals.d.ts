@@ -1,4 +1,4 @@
-export interface CatBreedsData {
+export interface ICatBreedsData {
  weight: { imperial: string; metric: string };
  id: string;
  name: string;
@@ -36,12 +36,14 @@ export interface CatBreedsData {
  wikipedia_url: string;
  hypoallergenic: number;
  reference_image_id: string;
- image: CatBreedsImageData;
 }
 
-export interface CatBreedsImageData {
+export interface ICatBreedsImageData {
  id: string;
  url: string;
  width: number;
  height: number;
 }
+
+export type CatBreedsData = CatBreedsData & CatBreedsImageData;
+export type CatBeedData = CatBeedData;
