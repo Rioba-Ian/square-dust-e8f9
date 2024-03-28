@@ -47,7 +47,7 @@ export default function Mostpopular() {
     {topTenBreeds.map((breed, index) => (
      <li
       key={breed.id}
-      className="py-2 md:py-8 space-y-4 md:space-y-8 flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-12 list-decimal"
+      className="py-2 md:py-8 space-y-4 md:space-y-8 flex flex-col-reverse md:flex-row items-center md:items-start gap-4 md:gap-12 list-decimal"
      >
       <Link
        to={`/cat/${breed.id}`}
