@@ -1,6 +1,8 @@
 import { json } from "@remix-run/cloudflare";
 import type { LoaderFunction } from "@remix-run/cloudflare";
+import { useLoaderData } from "@remix-run/react";
 import { CatBreedsData } from "globals";
+import { useEffect, useState } from "react";
 import Hero from "~/components/molecules/home/Hero";
 import WhyHaveCat from "~/components/molecules/home/WhyHaveCat";
 import { baseUrl } from "~/lib/api";
@@ -39,10 +41,8 @@ export const loader: LoaderFunction = async ({ context }) => {
  //   await bulkUploadData(dataToUpload);
  //  }
 
- console.log(topTenBreeds);
-
  return json(
-  { topPickedBreeds, topTenBreeds },
+  { topPickedBreeds, topTenBreeds, breedsData },
   {
    headers: {
     // cache for one day
@@ -53,6 +53,32 @@ export const loader: LoaderFunction = async ({ context }) => {
 };
 
 export default function Index() {
+ // push teh data to localstorage
+ const { breedsData } = useLoaderData();
+ const [catBreedsLocalStorage, setCatBreedsLocalStorage] = useState<
+  string | undefined
+ >();
+
+ const dataToLocal = breedsData?.map((item) => ({
+  id: item.id,
+  name: item.name,
+ }));
+
+ useEffect(() => {
+  const data = localStorage.getItem("catBreeds");
+  setCatBreedsLocalStorage(data);
+ }, []);
+
+ useEffect(() => {
+  const catBreedsLocalStorageExists = localStorage.getItem("catBreeds");
+  if (dataToLocal && !catBreedsLocalStorageExists) {
+   localStorage.setItem("catBreeds", JSON.stringify(dataToLocal));
+  }
+ }, [dataToLocal]);
+
+ console.log(dataToLocal);
+ console.log(catBreedsLocalStorage);
+
  return (
   <div>
    <Hero />
