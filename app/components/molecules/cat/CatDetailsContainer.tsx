@@ -43,41 +43,41 @@ export default function CatDetailsContainer({
       </p>
      </div>
 
-     <div className="flex items-center ">
+     <div className="flex flex-col xl:flex-row flex-wrap items-start xl:items-center ">
       <p className="basis-1/4 font-bold">Adaptability:</p>
       <CreateAttributeSet attribute={catData.adaptability} />
      </div>
 
-     <div className="flex items-center">
+     <div className="flex flex-col xl:flex-row flex-wrap items-start xl:items-center">
       <p className="basis-1/4 font-bold">Affection Level:</p>
       <CreateAttributeSet attribute={catData.affection_level} />
      </div>
 
-     <div className="flex items-center">
+     <div className="flex flex-col xl:flex-row flex-wrap items-start xl:items-center">
       <p className="basis-1/4 font-bold">Child Friendly:</p>
       <CreateAttributeSet attribute={catData.child_friendly} />
      </div>
 
-     <div className="flex items-center">
+     <div className="flex flex-col xl:flex-row flex-wrap items-start xl:items-center">
       <p className="basis-1/4 font-bold">Grooming:</p>
       <CreateAttributeSet attribute={catData.grooming} />
      </div>
-     <div className="flex items-center">
+     <div className="flex flex-col xl:flex-row flex-wrap items-start xl:items-center">
       <p className="basis-1/4 font-bold">Intelligence:</p>
       <CreateAttributeSet attribute={catData.intelligence} />
      </div>
 
-     <div className="flex items-center">
+     <div className="flex flex-col xl:flex-row flex-wrap items-start xl:items-center">
       <p className="basis-1/4 font-bold">Health Issues:</p>
       <CreateAttributeSet attribute={catData.health_issues} />
      </div>
 
-     <div className="flex items-center">
+     <div className="flex flex-col xl:flex-row flex-wrap items-start xl:items-center">
       <p className="basis-1/4 font-bold">Social Needs:</p>
       <CreateAttributeSet attribute={catData.social_needs} />
      </div>
 
-     <div className="flex items-center">
+     <div className="flex flex-col xl:flex-row flex-wrap items-start xl:items-center">
       <p className="basis-1/4 font-bold">Stranger Friendly:</p>
       <CreateAttributeSet attribute={catData.stranger_friendly} />
      </div>
@@ -93,11 +93,11 @@ type CreateAttributeSetProps = {
 
 function CreateAttributeSet({ attribute }: CreateAttributeSetProps) {
  const spans = Array.from({ length: 5 }, (_, index) => {
-  const opacityClass = index < attribute ? "opacity-1" : "opacity-3";
+  const opacityClass = index < attribute ? "opacity-1" : "opacity-4";
   return <span key={index} className={opacityClass}></span>;
  });
  return (
-  <div className="basis-3/4  flex gap-4" id="attribute-span-section">
+  <div className="basis-3/4  flex flex-wrap gap-4" id="attribute-span-section">
    {spans}
   </div>
  );

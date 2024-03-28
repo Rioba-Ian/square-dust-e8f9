@@ -1,9 +1,34 @@
 import { json, LoaderFunction } from "@remix-run/cloudflare";
+import { MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { ICatBreedsData, ICatBreedsImageData } from "globals";
 import { baseUrl } from "~/lib/api";
 import CatDetailsContainer from "~/components/molecules/cat/CatDetailsContainer";
 import { Image } from "@unpic/react";
+
+// meta content to change og:title and og:description
+export const meta: MetaFunction = ({ data }) => {
+ const { mainCatImage, catData } = data;
+
+ return [
+  {
+   title: `Cats Wiki | ${catData?.name}`,
+   description: `Get to know your cat breed better and other cats. ${catData?.description}`,
+  },
+  {
+   property: "og:title",
+   content: `Cats Wiki | ${catData?.name}`,
+  },
+  {
+   property: "og:description",
+   content: `Get to know your cat breed better and other cats. ${catData?.description}`,
+  },
+  {
+   property: "og:image",
+   content: `${mainCatImage?.url}`,
+  },
+ ];
+};
 
 export const loader: LoaderFunction = async ({ context, params }) => {
  const { id } = params;
