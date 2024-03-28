@@ -1,2 +1,22 @@
-#attribute-span-section {
+#attribute-span-section span {
+ @apply py-1.5 px-8 md:px-12 bg-dark-text rounded-md;
+}
+
+.opacity-1 {
+ opacity: 1;
+}
+
+.opacity-2 {
+ opacity: 0.8;
+}
+
+.opacity-3 {
+ opacity: 0.6;
+}
+
+.opacity-4 {
+ opacity: 0.4;
+}
+.opacity-5 {
+ opacity: 0.1;
 }

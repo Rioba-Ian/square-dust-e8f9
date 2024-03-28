@@ -7,7 +7,6 @@ import { Image } from "@unpic/react";
 
 export const loader: LoaderFunction = async ({ context, params }) => {
  const { id } = params;
- console.log(id);
 
  const res = await fetch(`${baseUrl}/breeds/${id}`, {
   headers: {
@@ -33,11 +32,6 @@ export const loader: LoaderFunction = async ({ context, params }) => {
  );
 
  const mainCatImage = await mainCatImageRes.json();
- console.log(catData);
-
- console.log(catImageData);
-
- console.log(mainCatImage);
 
  return json({ catData, catImageData, mainCatImage });
 };
@@ -48,17 +42,10 @@ function CatDetails() {
  const catData = data?.catData;
  const catdataImages = data?.catImageData;
  const catImage = data?.mainCatImage;
- console.log(catData);
-
- console.log(catdataImages);
-
- console.log(catImage);
 
  if (!catData) {
   return <div>No cat data found</div>;
  }
-
- // Display cat details (name, image, description, etc.) using catData
 
  return (
   <main className="min-h-full my-4">
@@ -76,13 +63,15 @@ function MoreCatPhotos({ catPhotos }) {
   <section className="py-4 md:py-10">
    <div className="grid grid-cols-[repeat(auto-fill,minmax(270px,1fr))] gap-6">
     {catPhotos.map((catPhoto, index) => (
-     <Image
-      key={index}
-      src={catPhoto.url}
-      width={300}
-      height={300}
-      className="rounded-3xl"
-     />
+     <div key={index} className="relative">
+      <Image
+       key={index}
+       src={catPhoto.url}
+       width={300}
+       height={300}
+       className="rounded-3xl"
+      />
+     </div>
     ))}
    </div>
   </section>

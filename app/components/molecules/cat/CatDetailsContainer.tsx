@@ -26,70 +26,79 @@ export default function CatDetailsContainer({
      {catData.name}
     </h1>
     <p className="my-8">{catData.description}</p>
-    <div id="attributes">
+    <div id="attributes" className="space-y-3 md:space-y-4">
      <p className="font-bold">
       Temparament: <span className="font-normal">{catData.temperament}</span>
      </p>
 
-     <p className="font-bold">
-      Origin: <span className="font-normal">{catData.origin}</span>
-     </p>
+     <div className="">
+      <p className="font-bold">
+       Origin: <span className="font-normal">{catData.origin}</span>
+      </p>
+     </div>
 
-     <p className="font-bold">
-      Life Span: <span className="font-normal">{catData.life_span} years</span>
-     </p>
+     <div>
+      <p className="font-bold">
+       Life Span: <span className="font-normal">{catData.life_span} years</span>
+      </p>
+     </div>
 
-     <p className="font-bold">
-      Adaptability: <span className="font-normal">{catData.adaptability}</span>
-     </p>
+     <div className="flex items-center ">
+      <p className="basis-1/4 font-bold">Adaptability:</p>
+      <CreateAttributeSet attribute={catData.adaptability} />
+     </div>
 
-     <p className="font-bold">
-      Affection Level:
-      <span className="font-normal">{catData.life_span}</span>
-     </p>
+     <div className="flex items-center">
+      <p className="basis-1/4 font-bold">Affection Level:</p>
+      <CreateAttributeSet attribute={catData.affection_level} />
+     </div>
 
-     <p className="font-bold">
-      Child Friendly:
-      <span className="font-normal">{catData.life_span}</span>
-     </p>
+     <div className="flex items-center">
+      <p className="basis-1/4 font-bold">Child Friendly:</p>
+      <CreateAttributeSet attribute={catData.child_friendly} />
+     </div>
 
-     <p className="font-bold">
-      Grooming: <span className="font-normal">{catData.life_span}</span>
-     </p>
+     <div className="flex items-center">
+      <p className="basis-1/4 font-bold">Grooming:</p>
+      <CreateAttributeSet attribute={catData.grooming} />
+     </div>
+     <div className="flex items-center">
+      <p className="basis-1/4 font-bold">Intelligence:</p>
+      <CreateAttributeSet attribute={catData.intelligence} />
+     </div>
 
-     <p className="font-bold">
-      Intelligence:
-      <span className="font-normal">{catData.intelligence}</span>
-     </p>
+     <div className="flex items-center">
+      <p className="basis-1/4 font-bold">Health Issues:</p>
+      <CreateAttributeSet attribute={catData.health_issues} />
+     </div>
 
-     <p className="font-bold">
-      Health Issues:
-      <span className="font-normal">{catData.life_span}</span>
-     </p>
+     <div className="flex items-center">
+      <p className="basis-1/4 font-bold">Social Needs:</p>
+      <CreateAttributeSet attribute={catData.social_needs} />
+     </div>
 
-     <p className="font-bold">
-      Social Needs:
-      <span className="font-normal">{catData.life_span}</span>
-     </p>
-
-     <p className="font-bold">
-      Stranger Friendly:
-      <span className="font-normal">{catData.life_span}</span>
-     </p>
+     <div className="flex items-center">
+      <p className="basis-1/4 font-bold">Stranger Friendly:</p>
+      <CreateAttributeSet attribute={catData.stranger_friendly} />
+     </div>
     </div>
    </div>
   </section>
  );
 }
 
-function createAttributeSet(attribute: number) {
+type CreateAttributeSetProps = {
+ attribute: number;
+};
+
+function CreateAttributeSet({ attribute }: CreateAttributeSetProps) {
+ const spans = Array.from({ length: 5 }, (_, index) => {
+  const opacityClass = index < attribute ? "opacity-1" : "opacity-3";
+  return <span key={index} className={opacityClass}></span>;
+ });
  return (
-  <div className="flex gap-4" id="attribute-span-section">
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
+  <div className="basis-3/4  flex gap-4" id="attribute-span-section">
+   {spans}
   </div>
  );
 }
